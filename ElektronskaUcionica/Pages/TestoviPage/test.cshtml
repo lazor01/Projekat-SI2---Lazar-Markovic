@@ -1,0 +1,35 @@
+﻿@page
+@model ElektronskaUcionica.Pages.TestoviPage.TestModel
+
+@{
+    ViewData["Title"] = "Testovi";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Izaberi koji test zelis da radis</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Predmeti[0].Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Predmeti)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a asp-page="./Random" asp-route-id="@item.ID">Test</a> 
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

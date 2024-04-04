@@ -1,0 +1,26 @@
+﻿@page
+@model ElektronskaUcionica.Pages.PredmetiPage.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Detaljno</h1>
+
+<div>
+    <h4>Predmeti</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Predmeti.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Predmeti.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Predmeti?.ID">Izmeni</a> |
+    <a asp-page="./predmet">Vrati se nazad</a>
+</div>

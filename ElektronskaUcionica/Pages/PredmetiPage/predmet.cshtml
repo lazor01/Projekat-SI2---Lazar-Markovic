@@ -1,0 +1,38 @@
+﻿@page
+@model ElektronskaUcionica.Pages.PredmetiPage.PitanjeModel
+
+@{
+    ViewData["Title"] = "Predmeti";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Predmeti</h1>
+
+<p>
+    <a asp-page="Create">Napravi nov predmet</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Predmeti[0].Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Predmeti)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Izmeni</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Detaljno</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Izbrisi</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

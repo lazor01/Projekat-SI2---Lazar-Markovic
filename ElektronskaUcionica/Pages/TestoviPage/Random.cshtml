@@ -1,0 +1,47 @@
+﻿@page "{id?}"
+@model ElektronskaUcionica.Pages.TestoviPage.RandomModel
+
+@{
+    ViewData["Title"] = "Random Test";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Random Test</h1>
+
+@if (Model.Pitanja != null && Model.Pitanja.Any())
+{
+    <form method="post">
+        <h2>Pitanja:</h2>
+        <ol>
+            @foreach (var pitanje in Model.Pitanja)
+            {
+                <li>
+                    <strong>@pitanje.Pitanje</strong>
+                    @if (!string.IsNullOrEmpty(pitanje.Slika))
+                    {
+                        <br />
+                        <img src="~/slike/@pitanje.Slika" alt="Slika pitanja" style="max-width: 200px;" />
+
+                        
+                    }
+                    <br />
+                   
+
+                    Odgovor: <input type="text" name="Odgovori[@pitanje.ID]" />
+                    <input type="hidden" name="PitanjaIDs[]" value="@pitanje.ID" />
+                    <hr />
+                </li>
+            }
+        </ol>
+        <input type="submit" value="Završi test" />
+    </form>
+
+    <div style="margin-bottom=150px;">
+    </div>
+}
+else
+{
+    <p>Nema dostupnih pitanja za izabrani predmet.</p>
+}
+
+<a asp-page="./Test">Nazad na izbor testova</a>

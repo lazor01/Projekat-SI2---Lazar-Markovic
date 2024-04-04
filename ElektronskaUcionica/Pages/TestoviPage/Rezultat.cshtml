@@ -1,0 +1,21 @@
+﻿@page "{tacniOdgovori?}"
+@model ElektronskaUcionica.Pages.TestoviPage.RezultatModel
+
+@{
+    ViewData["Title"] = "Rezultat testa";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Rezultat testa</h1>
+
+@if (true)
+{
+    <p>Imate @Model.TacniOdgovori tacnih odgovora od ukupno @Model.BrojPitanja pitanja.</p>
+}
+else
+{
+    <p>Došlo je do greške pri obradi rezultata testa.</p>
+}
+
+<a asp-page="./Test">Nazad na izbor testova</a>
+

@@ -1,0 +1,38 @@
+﻿@page
+@model ElektronskaUcionica.Pages.PredmetiPage.LukaModel
+
+@{
+    ViewData["Title"] = "Oblasti";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Oblasti</h1>
+
+<p>
+    <a asp-page="Create">Napravi novu oblast</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Oblasti[0].Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Oblasti)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Izmeni</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Detaljno</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Izbrisi</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
